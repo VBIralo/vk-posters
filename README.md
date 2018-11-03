@@ -26,7 +26,7 @@ https://api.vk.com/method/execute.wallPost?message={text}&poster_bkg_id={bkg_id}
 
 ## Фоны (bkg_id)
 
-#### https://danyadev.github.io/posters/
+#### На картинки можно глянуть тут: https://danyadev.github.io/posters/
 
 - Градиенты
 > 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
