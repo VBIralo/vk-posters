@@ -5,37 +5,23 @@
 ## Порядок действий:
 ### 1. Получаем токен офф приложения.
 ```
-https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={username}&password={password}&scope=all&v=5.93&2fa_supported={2fa}&lang=ru&device_id={device_id}&libverify_support=1
+https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={username}&password={password}&scope=all&2fa_supported=1
 ```
 
 *Параметры:*
 + `{username}` -- Логин VK
 + `{password}` -- Пароль VK
-+ `{device_id}` -- Грубо говоря, рандомная строка
-+ `{2fa}` -- Если используем 2fa, то ставим 1. Не используем - 0
+
+Если есть двухфакторная авторизация, то придется сделать запрос повторно, добавив в запрос  &code={пришедший код}
 
 ### 2. Выполняем POST-запрос API.
 ```
-POST /method/execute.wallPost HTTP/1.1
-Cache-Control: no-cache
-X-Get-Processing-Time: 1
-User-Agent: VKAndroidApp/5.21-2896 (Android 8.0.0; SM-G965F Build/R16NW; ru; 2960x1440)
-X-VK-Android-Client: new
-Content-Type: application/x-www-form-urlencoded
-Host: api.vk.com
-Connection: Keep-Alive
-Accept-Encoding: gzip
-Cookie: remixlang=114
-
-v=5.93&https=1&ref=newsfeed&owner_id={your_id}&mark_as_ads={mark_as_ads}&lang=ru&close_comments={close_comments}&poster_bkg_id={bkg_id}&access_token={access_token}&message={text}
+https://api.vk.com/method/execute.wallPost?message={text}&poster_bkg_id={bkg_id}&access_token={access_token}&v=5.93
 ```
 
 *Параметры:*
-+ `{your_id}` -- Ваш ид (12345678)
-+ `{mark_as_ads}` -- Отметить как рекламный пост (0)
-+ `{close_comments}` -- Выключить комментрарии (0)
 + `{bkg_id}` -- ID фонового изображения (17) см. ниже
-+ `{access_token}` -- Токен см. 1 пункт
++ `{access_token}` -- Токен, полученный в 1 пункте
 + `{text}` -- Текст постера
 
 ## Фоны (bkg_id)
