@@ -3,7 +3,7 @@
 # ВСЕ ДЕЙСТВИЯ ВЫ ВЫПОЛНЯЕТЕ НА СВОЙ СТРАХ И РИСК!!
 
 ## Порядок действий:
-### 1. Получаем токен офф приложения.
+### 1. Получаем токен офф приложения
 ```
 https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={username}&password={password}&scope=all&2fa_supported=1
 ```
@@ -14,7 +14,7 @@ https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=h
 
 Если есть двухфакторная авторизация, то придется сделать запрос повторно, добавив в запрос  &code={пришедший код}
 
-### 2. Выполняем POST-запрос API.
+### 2. Выполняем GET-запрос API
 ```
 https://api.vk.com/method/execute.wallPost?message={text}&poster_bkg_id={bkg_id}&access_token={access_token}&v=5.93
 ```
